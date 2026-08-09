@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FaceEntryPro — Biometric Attendance & Campus Intelligence</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<style>
+  /* Page-specific: marketing layout only used on index.html, kept inline to avoid a 5th CSS file */
+  body.landing{ background: var(--paper); }
+  .nav-public{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 20px 48px; max-width: 1320px; margin: 0 auto;
+  }
+  .nav-public .links{ display:flex; gap: 34px; align-items:center; }
+  .nav-public .links a{ font-size: 13.5px; font-weight: 600; color: var(--text-secondary); }
+  .nav-public .links a:hover{ color: var(--text-primary); }
+
+  .hero{
+    background: radial-gradient(120% 100% at 80% 0%, #16223B 0%, var(--ink) 45%, #070C16 100%);
+    color: var(--text-on-ink);
+    position: relative;
+    overflow: hidden;
+    padding: 64px 48px 90px;
+  }
+  .hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(47,213,196,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(47,213,196,0.05) 1px, transparent 1px);
+    background-size: 38px 38px;
+    mask-image: radial-gradient(circle at 75% 20%, black, transparent 65%);
+  }
+  .hero-inner{
+    max-width: 1320px; margin: 0 auto;
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items:center;
+    position: relative; z-index: 2;
+  }
+  .eyebrow{
+    font-family: var(--font-mono); font-size: 12px; letter-spacing:0.08em; text-transform:uppercase;
+    color: var(--scan); display:flex; align-items:center; gap:9px; margin-bottom: 20px;
+  }
+  .eyebrow::before{ content:''; width:20px; height:1px; background: var(--scan); }
+  .hero h1{ font-size: 46px; line-height: 1.14; font-weight: 700; color:#fff; max-width: 620px; }
+  .hero h1 em{ font-style: normal; color: var(--scan); }
+  .hero .lede{ margin-top: 20px; font-size: 15.5px; line-height: 1.7; color: var(--text-on-ink-dim); max-width: 520px; }
+  .hero-cta{ display:flex; gap: 12px; margin-top: 30px; }
+  .hero-metrics{ display:flex; gap: 34px; margin-top: 46px; }
+  .hero-metrics .n{ font-family: var(--font-display); font-size: 26px; font-weight:700; color:#fff; }
+  .hero-metrics .l{ font-size: 11.5px; color: var(--text-on-ink-dim); margin-top: 3px; max-width:110px; line-height:1.4; }
+
+  /* Signature: bounding-box scan visual */
+  .hero-visual{ display:flex; justify-content:center; }
+  .id-card{
+    width: 340px; background: rgba(18,26,43,0.7); backdrop-filter: blur(6px);
+    border: 1px solid var(--ink-line); border-radius: var(--radius-lg);
+    padding: 22px; position: relative;
+  }
+  .id-card .frame{ position:relative; width:100%; height:240px; border-radius: 12px; background: linear-gradient(160deg,#1B2A47,#0E1523); overflow:hidden; }
+  .id-card .frame svg.face{ width:100%; height:100%; }
+  .id-readout{
+    display:flex; justify-content:space-between; align-items:center; margin-top: 16px;
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--text-on-ink-dim);
+  }
+  .id-readout .status{ color: var(--green); display:flex; align-items:center; gap:6px; }
+  .id-readout .status .live-dot{ background: var(--green); }
+  .id-modality-row{ display:flex; gap:8px; margin-top: 14px; }
+  .id-modality{
+    flex:1; text-align:center; padding: 9px 4px; border-radius: 8px;
+    background: rgba(47,213,196,0.08); border: 1px solid rgba(47,213,196,0.25);
+    font-size: 10.5px; color: var(--scan); font-weight: 600;
+  }
+
+  section{ padding: 84px 48px; }
+  .section-inner{ max-width: 1320px; margin: 0 auto; }
+  .section-head{ max-width: 620px; margin-bottom: 48px; }
+  .section-head .eyebrow{ color: var(--ink); opacity:0.55; }
+  .section-head .eyebrow::before{ background: var(--ink); opacity: 0.4; }
+  .section-head h2{ font-size: 32px; font-weight: 700; line-height:1.2; }
+  .section-head p{ margin-top: 14px; color: var(--text-secondary); font-size: 15px; line-height:1.65; }
+
+  .feature-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+  .feature-card{ padding: 26px; }
+  .feature-icon{
+    width: 42px; height:42px; border-radius: 11px; background: var(--surface-2);
+    display:flex; align-items:center; justify-content:center; margin-bottom: 18px;
+    border: 1px solid var(--border);
+  }
+  .feature-icon svg{ width:20px; height:20px; color: var(--ink); }
+  .feature-card h3{ font-size: 15.5px; font-weight:700; }
+  .feature-card p{ font-size: 13.5px; color: var(--text-secondary); margin-top:8px; line-height:1.6; }
+  .feature-card .stat{
+    margin-top: 14px; font-family: var(--font-mono); font-size: 11.5px; color: var(--scan-dim);
+    background: #E8FBF8; display:inline-block; padding: 4px 9px; border-radius: 6px; color:#12776D;
+  }
+
+  .flow-strip{
+    background: var(--ink); border-radius: var(--radius-lg); padding: 44px 40px; color:#fff;
+    display:grid; grid-template-columns: repeat(4,1fr); gap: 0;
+  }
+  .flow-step{ padding: 0 22px; position:relative; }
+  .flow-step:not(:first-child)::before{
+    content:''; position:absolute; left:0; top: 18px; width:1px; height: calc(100% - 30px); background: var(--ink-line-soft);
+  }
+  .flow-step .num{ font-family: var(--font-mono); font-size: 12px; color: var(--scan); }
+  .flow-step h4{ font-size: 15px; font-weight:700; margin-top:10px; color:#fff; }
+  .flow-step p{ font-size: 12.5px; color: var(--text-on-ink-dim); margin-top:8px; line-height:1.6; }
+
+  .roles-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+  .role-card{ padding: 22px; text-align:left; }
+  .role-card .tag{ font-family: var(--font-mono); font-size: 10.5px; color: var(--scan-dim); color:#12776D; text-transform:uppercase; letter-spacing:0.05em; }
+  .role-card h3{ margin-top:8px; font-size: 15px; }
+  .role-card ul{ margin-top: 12px; }
+  .role-card li{ font-size: 12.5px; color: var(--text-secondary); padding: 5px 0; display:flex; gap:8px; }
+  .role-card li::before{ content:'—'; color: var(--scan-dim); color:#1A5F58; }
+  .role-card-link{ display:block; transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease; }
+  .role-card-link:hover{ border-color: var(--scan); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .role-card-cta{
+    display:inline-block; margin-top: 16px; font-size: 12.5px; font-weight: 700;
+    color: #12776D; font-family: var(--font-mono);
+  }
+
+  .cta-band{
+    background: linear-gradient(120deg, #0E1727, var(--ink));
+    border-radius: var(--radius-lg); padding: 54px 48px; text-align:center; color:#fff; position:relative; overflow:hidden;
+  }
+  .cta-band::after{ content:''; position:absolute; inset:0; background: radial-gradient(circle at 50% 0%, rgba(47,213,196,0.18), transparent 60%); }
+  .cta-band h2{ font-size: 28px; font-weight:700; position:relative; z-index:1; }
+  .cta-band p{ color: var(--text-on-ink-dim); margin-top:10px; font-size:14px; position:relative; z-index:1; }
+  .cta-band .hero-cta{ justify-content:center; position:relative; z-index:1; }
+  .cta-quicklinks{
+    position:relative; z-index:1; margin-top: 18px;
+    display:flex; align-items:center; justify-content:center; gap: 10px;
+    font-size: 12.5px; color: var(--text-on-ink-dim);
+  }
+  .cta-quicklinks a{ color: var(--scan); font-weight: 600; }
+  .cta-quicklinks a:hover{ text-decoration: underline; }
+
+  footer{ padding: 34px 48px; border-top: 1px solid var(--border); }
+  .footer-inner{ max-width:1320px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+  .footer-inner .brand-name{ color: var(--text-primary); }
+  .footer-links{ display:flex; gap:24px; }
+  .footer-links a{ font-size:12.5px; color: var(--text-secondary); }
+
+  @media (max-width: 1080px){
+    .hero-inner{ grid-template-columns: 1fr; }
+    .hero-visual{ order:-1; }
+    .feature-grid{ grid-template-columns: repeat(2,1fr); }
+    .flow-strip{ grid-template-columns: repeat(2,1fr); gap: 24px; }
+    .flow-step:nth-child(3)::before{ display:none; }
+    .flow-step:not(:first-child)::before{ display:none; }
+    .roles-grid{ grid-template-columns: repeat(2,1fr); }
+  }
+  @media (max-width: 700px){
+    .nav-public{ padding: 16px 20px; }
+    .nav-public .links{ display:none; }
+    .hero{ padding: 40px 20px 60px; }
+    .hero h1{ font-size: 32px; }
+    section{ padding: 54px 20px; }
+    .feature-grid, .roles-grid{ grid-template-columns: 1fr; }
+    .flow-strip{ grid-template-columns: 1fr; padding: 30px 24px; }
+    .footer-inner{ flex-direction: column; gap: 16px; text-align:center; }
+  }
+</style>
+</head>
+<body class="landing">
+
+  <nav class="nav-public">
+    <a href="index.html" class="brand" style="border:none;padding:0;margin:0;">
+      <span class="brand-mark"></span>
+      <span class="brand-name">FaceEntry<span>Pro</span></span>
+    </a>
+    <div class="links">
+      <a href="#platform">Platform</a>
+      <a href="#analytics">Predictive Analytics</a>
+      <a href="#security">Security</a>
+      <a href="#roles">For your campus</a>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <a href="login.html" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="login.html" class="btn btn-scan btn-sm">Request a demo</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="platform">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Multimodal biometric recognition</div>
+        <h1>Attendance that verifies itself — and tells you who's at risk <em>before</em> it's too late.</h1>
+        <p class="lede">FaceEntryPro replaces registers and card-swipes with real-time face, iris and voice-print recognition at the edge — then turns that data into early-warning signals faculty can actually act on, weeks before a dropout risk becomes a dropout.</p>
+        <div class="hero-cta">
+          <a href="login.html" class="btn btn-scan">Sign in to console</a>
+          <a href="#platform" class="btn btn-ghost" style="background:transparent;border-color:var(--ink-line);color:#fff;">See how it works</a>
+        </div>
+        <div class="hero-metrics">
+          <div><div class="n">98.7%</div><div class="l">Identification accuracy across 3 fused modalities</div></div>
+          <div><div class="n">&lt;1.2s</div><div class="l">Recognition latency at entry points</div></div>
+          <div><div class="n">3–4 wks</div><div class="l">Early-warning window before dropout risk peaks</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="id-card scan-frame">
+          <span class="scan-corner tl"></span><span class="scan-corner tr"></span>
+          <span class="scan-corner bl"></span><span class="scan-corner br"></span>
+          <span class="scan-line"></span>
+          <div class="frame">
+            <svg class="face" viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="150" cy="118" rx="62" ry="78" fill="none" stroke="#3A4F73" stroke-width="1.4"/>
+              <path d="M100 90 Q150 70 200 90" stroke="#2FD5C4" stroke-width="1.2" fill="none" opacity="0.7"/>
+              <circle cx="122" cy="108" r="3" fill="#2FD5C4"/>
+              <circle cx="178" cy="108" r="3" fill="#2FD5C4"/>
+              <path d="M140 140 Q150 148 160 140" stroke="#3A4F73" stroke-width="1.4" fill="none"/>
+              <path d="M148 118 L145 132 L152 134" stroke="#3A4F73" stroke-width="1.2" fill="none"/>
+              <g opacity="0.5">
+                <line x1="70" y1="40" x2="70" y2="60" stroke="#2FD5C4" stroke-width="1.2"/>
+                <line x1="70" y1="40" x2="90" y2="40" stroke="#2FD5C4" stroke-width="1.2"/>
+                <line x1="230" y1="40" x2="230" y2="60" stroke="#2FD5C4" stroke-width="1.2"/>
+                <line x1="230" y1="40" x2="210" y2="40" stroke="#2FD5C4" stroke-width="1.2"/>
+                <line x1="70" y1="200" x2="70" y2="180" stroke="#2FD5C4" stroke-width="1.2"/>
+                <line x1="70" y1="200" x2="90" y2="200" stroke="#2FD5C4" stroke-width="1.2"/>
+                <line x1="230" y1="200" x2="230" y2="180" stroke="#2FD5C4" stroke-width="1.2"/>
+                <line x1="230" y1="200" x2="210" y2="200" stroke="#2FD5C4" stroke-width="1.2"/>
+              </g>
+            </svg>
+          </div>
+          <div class="id-readout">
+            <span>ID: STU-04471</span>
+            <span class="status"><span class="live-dot"></span>Verified · 0.94s</span>
+          </div>
+          <div class="id-modality-row">
+            <div class="id-modality">FACE ✓</div>
+            <div class="id-modality">IRIS ✓</div>
+            <div class="id-modality">VOICE ✓</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="security">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="eyebrow">Why departments switch</div>
+        <h2>Built for the two things registers can't do: prove identity, and see risk coming.</h2>
+        <p>Every capability below maps to a specific failure of manual registers and card-swipe systems — proxy marking, spoofing, and reports that only explain the past.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Trimodal recognition fusion</h3>
+          <p>Facial geometry, iris pattern and voice-print are combined rather than checked alone, closing the gaps any single modality leaves open.</p>
+          <span class="stat">98.7% target accuracy</span>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/><circle cx="12" cy="13" r="1.6"/></svg></div>
+          <h3>3D liveness detection</h3>
+          <p>Depth-sensing distinguishes a real, present student from a printed photo, a screen replay, or a silicone mask before access is ever granted.</p>
+          <span class="stat">Anti-spoofing layer</span>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12h8M8 16h5"/><circle cx="9" cy="8.3" r="0.6" fill="currentColor"/></svg></div>
+          <h3>Edge inference, on-device</h3>
+          <p>A TensorFlow Lite model runs locally on a Raspberry Pi 4 at every entry point, so recognition keeps working through network outages.</p>
+          <span class="stat">No biometric data leaves the device</span>
+        </div>
+        <div class="card feature-card" id="analytics">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg></div>
+          <h3>Predictive at-risk analytics</h3>
+          <p>Attendance trajectories are correlated against academic performance to flag disengagement 3–4 weeks before it becomes a dropout statistic.</p>
+          <span class="stat">Early-warning, not a retrospective report</span>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg></div>
+          <h3>Spatiotemporal anomaly detection</h3>
+          <p>Tailgating, badge sharing and irregular entry timing are surfaced in real time on a role-based dashboard, not discovered after the fact.</p>
+          <span class="stat">Live campus intelligence</span>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+          <h3>GDPR-aligned by design</h3>
+          <p>Because recognition never touches a public network, institutions meet data-privacy mandates without adding a separate compliance layer.</p>
+          <span class="stat">Privacy-by-architecture</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="eyebrow">From entry point to intervention</div>
+        <h2>What happens in the 0.94 seconds after a student walks in.</h2>
+      </div>
+      <div class="flow-strip">
+        <div class="flow-step"><div class="num">01</div><h4>Capture &amp; fuse</h4><p>Camera, iris sensor and mic capture simultaneously; the CNN fuses all three signals on-device.</p></div>
+        <div class="flow-step"><div class="num">02</div><h4>Verify liveness</h4><p>Depth sensing confirms a live, present person before any match is accepted.</p></div>
+        <div class="flow-step"><div class="num">03</div><h4>Log &amp; correlate</h4><p>Attendance is logged instantly and cross-referenced against each student's academic record.</p></div>
+        <div class="flow-step"><div class="num">04</div><h4>Alert &amp; intervene</h4><p>Faculty receive a risk alert weeks ahead, with enough runway to actually intervene.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roles">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="eyebrow">One system, four views</div>
+        <h2>Every role sees exactly what it needs — nothing else.</h2>
+      </div>
+      <div class="roles-grid">
+        <a href="dashboard.html" class="card role-card role-card-link">
+          <div class="tag">Administrator</div>
+          <h3>Full campus visibility</h3>
+          <ul><li>Role &amp; access management</li><li>Anomaly &amp; security console</li><li>System-wide reporting</li></ul>
+          <span class="role-card-cta">Open admin dashboard →</span>
+        </a>
+        <a href="faculty-dashboard.html" class="card role-card role-card-link">
+          <div class="tag">Faculty</div>
+          <h3>Class-level insight</h3>
+          <ul><li>Live attendance by section</li><li>At-risk student alerts</li><li>Attendance-linked performance</li></ul>
+          <span class="role-card-cta">Open faculty portal →</span>
+        </a>
+        <a href="student-dashboard.html" class="card role-card role-card-link">
+          <div class="tag">Student</div>
+          <h3>Personal record</h3>
+          <ul><li>Attendance history</li><li>Entry/exit confirmations</li><li>Standing &amp; notices</li></ul>
+          <span class="role-card-cta">Open student portal →</span>
+        </a>
+        <a href="parent-dashboard.html" class="card role-card role-card-link">
+          <div class="tag">Parent · optional</div>
+          <h3>Progress visibility</h3>
+          <ul><li>Attendance summaries</li><li>Opt-in notifications</li><li>No biometric data shown</li></ul>
+          <span class="role-card-cta">Open parent portal →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="section-inner">
+      <div class="cta-band">
+        <h2>See the console, not just the pitch.</h2>
+        <p>Sign in to the prototype to explore attendance, analytics and the campus intelligence dashboard.</p>
+        <div class="hero-cta">
+          <a href="login.html" class="btn btn-scan">Sign in to console</a>
+          <a href="dashboard.html" class="btn btn-ghost" style="background:transparent;border-color:var(--ink-line);color:#fff;">Skip to admin dashboard</a>
+        </div>
+        <div class="cta-quicklinks">
+          <a href="student-dashboard.html">Student portal</a>
+          <span>·</span>
+          <a href="faculty-dashboard.html">Faculty portal</a>
+          <span>·</span>
+          <a href="parent-dashboard.html">Parent portal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="brand-name" style="font-family:var(--font-display);font-weight:700;">FaceEntryPro</span>
+      <div class="footer-links">
+        <a href="#security">Security</a>
+        <a href="#analytics">Analytics</a>
+        <a href="login.html">Sign in</a>
+      </div>
+      <span style="font-size:12px;color:var(--text-tertiary);">Frontend prototype · not connected to live hardware</span>
+    </div>
+  </footer>
+
+</body>
+</html>

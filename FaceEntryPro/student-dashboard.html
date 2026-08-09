@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Portal — FaceEntryPro</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/scanner.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div><div class="brand-name">FaceEntry<span>Pro</span></div><div class="brand-sub">Student Portal</div></div>
+    </div>
+
+    <div class="nav-label">Overview</div>
+    <a href="#overview" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="11" width="8" height="10" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/></svg>Dashboard</a>
+
+    <div class="nav-label">Academics</div>
+    <a href="#courses" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4a1 1 0 0 0-1-1H6.5A2.5 2.5 0 0 0 4 5.5v14z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20"/></svg>My Courses</a>
+    <a href="#attendance" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>Attendance History</a>
+    <a href="#notices" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>Notices</a>
+
+    <div class="nav-label">Account</div>
+    <a href="#profile" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg>Profile</a>
+
+    <div class="sidebar-footer">
+      <a href="#profile" class="sidebar-user">
+        <span class="avatar">RA</span>
+        <div><div class="name">Sheikh Redwan Ahad</div><div class="role">Student · 242-35-601</div></div>
+      </a>
+    </div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div class="flex items-center">
+        <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="topbar-title">
+          <h1>Welcome back, Redwan</h1>
+          <div class="crumb">Fall Semester · Week 6</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="live-pill"><span class="live-dot"></span>Checked in · 08:52 AM</div>
+        <a href="login.html" class="btn btn-ghost btn-sm">Sign out</a>
+        <a href="#profile"><span class="avatar">RA</span></a>
+      </div>
+    </header>
+
+    <main class="main">
+
+      <div id="overview" class="page-section">
+        <div class="hero-banner">
+          <div class="l">
+            <h2>You're in good academic standing</h2>
+            <p>Overall attendance is 92% this semester — well above the 75% minimum across all six enrolled courses.</p>
+          </div>
+          <div class="r"><a href="#attendance" class="btn btn-scan btn-sm">View attendance history</a></div>
+        </div>
+
+        <div class="grid grid-4">
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Overall attendance</div><div class="stat-value">92%</div></div><div class="stat-icon" style="background:#E8FBF8;color:#12776D;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div></div>
+            <div class="stat-delta up">↑ 2% vs last month</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Enrolled courses</div><div class="stat-value">6</div></div><div class="stat-icon" style="background:var(--blue-bg);color:#2A56C6;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4a1 1 0 0 0-1-1H6.5A2.5 2.5 0 0 0 4 5.5v14z"/></svg></div></div>
+            <div class="stat-delta flat">Fall semester</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Academic standing</div><div class="stat-value" style="font-size:22px;">Good</div></div><div class="stat-icon" style="background:var(--green-bg);color:#1D8A54;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="10" r="2.4"/></svg></div></div>
+            <div class="stat-delta flat">No risk flags</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Biometric profile</div><div class="stat-value" style="font-size:22px;">Verified</div></div><div class="stat-icon" style="background:var(--surface-2);color:var(--text-secondary);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div></div>
+            <div class="stat-delta flat">Face + Iris + Voice on file</div>
+          </div>
+        </div>
+
+        <div class="grid grid-12 mt-20">
+          <div class="card card-pad col-8">
+            <div class="card-head"><div><h3>Attendance this month</h3><div class="sub">Present · late · absent, by week</div></div></div>
+            <div class="bar-chart">
+              <div class="col"><div class="stack" style="height:96%;"><div class="seg-present" style="height:92%"></div><div class="seg-late" style="height:4%"></div></div><div class="lbl">Wk 1</div></div>
+              <div class="col"><div class="stack" style="height:90%;"><div class="seg-present" style="height:82%"></div><div class="seg-late" style="height:8%"></div><div class="seg-absent" style="height:10%"></div></div><div class="lbl">Wk 2</div></div>
+              <div class="col"><div class="stack" style="height:100%;"><div class="seg-present" style="height:100%"></div></div><div class="lbl">Wk 3</div></div>
+              <div class="col"><div class="stack" style="height:84%;"><div class="seg-present" style="height:76%"></div><div class="seg-late" style="height:8%"></div><div class="seg-absent" style="height:16%"></div></div><div class="lbl">Wk 4</div></div>
+              <div class="col"><div class="stack" style="height:93%;"><div class="seg-present" style="height:88%"></div><div class="seg-late" style="height:5%"></div><div class="seg-absent" style="height:7%"></div></div><div class="lbl">Wk 5</div></div>
+              <div class="col"><div class="stack" style="height:88%;"><div class="seg-present" style="height:88%"></div></div><div class="lbl">Wk 6</div></div>
+            </div>
+            <div class="legend">
+              <div class="legend-item"><span class="sw" style="background:var(--scan);"></span>Present</div>
+              <div class="legend-item"><span class="sw" style="background:var(--amber);"></span>Late arrival</div>
+              <div class="legend-item"><span class="sw" style="background:var(--surface-2);border:1px solid var(--border);"></span>Absent</div>
+            </div>
+          </div>
+
+          <div class="card card-pad col-4">
+            <div class="card-head"><div><h3>Today's schedule</h3><div class="sub">Tuesday, 12 August</div></div></div>
+            <div class="schedule-row"><span class="schedule-time">09:00</span><span class="schedule-bar done"></span><div><div class="schedule-title">Operating System</div><div class="schedule-sub">Room 412 · Checked in 08:58</div></div></div>
+            <div class="schedule-row"><span class="schedule-time">11:00</span><span class="schedule-bar now"></span><div><div class="schedule-title">Theory of Computing</div><div class="schedule-sub">Room 305 · In progress</div></div></div>
+            <div class="schedule-row"><span class="schedule-time">14:00</span><span class="schedule-bar"></span><div><div class="schedule-title">Website &amp; Desktop Dev. Lab</div><div class="schedule-sub">Lab 2 · Upcoming</div></div></div>
+            <div class="schedule-row"><span class="schedule-time">16:00</span><span class="schedule-bar"></span><div><div class="schedule-title">Operating System Lab</div><div class="schedule-sub">Lab 1 · Upcoming</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="courses" class="page-section mt-20">
+        <div class="card card-pad">
+          <div class="card-head"><div><h3>My courses</h3><div class="sub">Fall semester enrollment &amp; per-course attendance</div></div></div>
+          <div class="grid grid-3">
+            <div class="card course-card">
+              <div class="course-top"><div><div class="course-code">CSE 331</div><h3>Theory of Computing</h3></div><span class="badge badge-green">94%</span></div>
+              <div class="course-meta">Instructor: MD. Selim Reza</div>
+              <div class="course-progress"><div class="confidence-track" style="width:100%;"><div class="confidence-fill" style="width:94%;"></div></div></div>
+            </div>
+            <div class="card course-card">
+              <div class="course-top"><div><div class="course-code">CSE 323</div><h3>Operating System</h3></div><span class="badge badge-green">90%</span></div>
+              <div class="course-meta">Instructor: MD. Selim Reza</div>
+              <div class="course-progress"><div class="confidence-track" style="width:100%;"><div class="confidence-fill" style="width:90%;"></div></div></div>
+            </div>
+            <div class="card course-card">
+              <div class="course-top"><div><div class="course-code">CSE 323L</div><h3>Operating System Lab</h3></div><span class="badge badge-green">96%</span></div>
+              <div class="course-meta">Instructor: MD. Selim Reza</div>
+              <div class="course-progress"><div class="confidence-track" style="width:100%;"><div class="confidence-fill" style="width:96%;"></div></div></div>
+            </div>
+            <div class="card course-card">
+              <div class="course-top"><div><div class="course-code">CSE 327</div><h3>Website and Desktop Development</h3></div><span class="badge badge-amber">81%</span></div>
+              <div class="course-meta">Instructor: Nabila Tabassum</div>
+              <div class="course-progress"><div class="confidence-track" style="width:100%;"><div class="confidence-fill" style="width:81%;background:var(--amber);"></div></div></div>
+            </div>
+            <div class="card course-card">
+              <div class="course-top"><div><div class="course-code">CSE 327L</div><h3>Website and Desktop Development Lab</h3></div><span class="badge badge-green">88%</span></div>
+              <div class="course-meta">Instructor: Nabila Tabassum</div>
+              <div class="course-progress"><div class="confidence-track" style="width:100%;"><div class="confidence-fill" style="width:88%;"></div></div></div>
+            </div>
+            <div class="card course-card" style="background:var(--surface-2);border:none;">
+              <div class="course-top"><div><div class="course-code">CSE 499</div><h3>System Analysis and Design — Capstone Project</h3></div><span class="badge badge-blue">e-Learn</span></div>
+              <div class="course-meta">Instructor: MD. Selim Reza</div>
+              <a href="https://elearn.daffodilvarsity.edu.bd/course/view.php?id=36732" target="_blank" rel="noopener" class="btn btn-primary btn-sm mt-8" style="width:100%;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14L21 3"/></svg>
+                Open in e-Learn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="attendance" class="page-section mt-20">
+        <div class="card card-pad">
+          <div class="card-head">
+            <div><h3>Attendance history</h3><div class="sub">Your verified entries across all courses</div></div>
+            <a href="#" class="btn btn-ghost btn-sm">Download my record</a>
+          </div>
+          <div class="filters" style="margin-bottom:18px;">
+            <select class="select"><option>All courses</option><option>Theory of Computing</option><option>Operating System</option><option>Website and Desktop Development</option><option>Operating System Lab</option><option>Website and Desktop Development Lab</option><option>Capstone Project</option></select>
+            <select class="select"><option>This month</option><option>Last month</option><option>This semester</option></select>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Course</th><th>Date</th><th>Check-in</th><th>Verification</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Operating System</td><td class="mono">Aug 12, 2026</td><td class="mono">08:58 AM</td><td><span class="badge badge-blue">Face+Iris+Voice</span></td><td><span class="badge badge-green">Present</span></td></tr>
+                <tr><td>Theory of Computing</td><td class="mono">Aug 12, 2026</td><td class="mono">10:57 AM</td><td><span class="badge badge-blue">Face+Iris+Voice</span></td><td><span class="badge badge-green">Present</span></td></tr>
+                <tr><td>Website and Desktop Development</td><td class="mono">Aug 11, 2026</td><td class="mono">—</td><td><span class="badge badge-gray">No scan recorded</span></td><td><span class="badge badge-red">Absent</span></td></tr>
+                <tr><td>Operating System Lab</td><td class="mono">Aug 10, 2026</td><td class="mono">03:48 PM</td><td><span class="badge badge-blue">Face+Iris+Voice</span></td><td><span class="badge badge-green">Present</span></td></tr>
+                <tr><td>Website and Desktop Development Lab</td><td class="mono">Aug 10, 2026</td><td class="mono">01:56 PM</td><td><span class="badge badge-blue">Face+Iris+Voice</span></td><td><span class="badge badge-green">Present</span></td></tr>
+                <tr><td>Theory of Computing</td><td class="mono">Aug 9, 2026</td><td class="mono">11:14 AM</td><td><span class="badge badge-blue">Face+Iris+Voice</span></td><td><span class="badge badge-amber">Late arrival</span></td></tr>
+                <tr><td>Operating System</td><td class="mono">Aug 8, 2026</td><td class="mono">08:51 AM</td><td><span class="badge badge-blue">Face+Iris+Voice</span></td><td><span class="badge badge-green">Present</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="notices" class="page-section mt-20">
+        <div class="card card-pad">
+          <div class="card-head"><div><h3>Notices</h3><div class="sub">Attendance alerts and announcements</div></div></div>
+          <div class="notice-item">
+            <div class="notice-icon" style="background:var(--amber-bg);color:#97650C;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9L2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+            <div><div class="notice-title">Attendance reminder — Website and Desktop Development</div><div class="notice-body">Your attendance in this course is at 81%, approaching the 75% minimum. One more absence may affect exam eligibility.</div><div class="notice-time">Aug 11, 2026 · 6:02 PM</div></div>
+          </div>
+          <div class="notice-item">
+            <div class="notice-icon" style="background:var(--blue-bg);color:#2A56C6;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4a1 1 0 0 0-1-1H6.5A2.5 2.5 0 0 0 4 5.5v14z"/></svg></div>
+            <div><div class="notice-title">Capstone project milestone due</div><div class="notice-body">System Analysis and Design Capstone Project — Phase 2 submission opens on e-Learn this week.</div><div class="notice-time">Aug 10, 2026 · 9:00 AM</div></div>
+          </div>
+          <div class="notice-item">
+            <div class="notice-icon" style="background:var(--green-bg);color:#1D8A54;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><div class="notice-title">Biometric profile verified</div><div class="notice-body">Your face, iris and voice-print enrollment was successfully verified for this semester — no action needed.</div><div class="notice-time">Jan 14, 2026 · 10:22 AM</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="profile" class="page-section mt-20">
+        <div class="grid grid-12">
+          <div class="card card-pad col-4">
+            <div style="text-align:center;">
+              <div class="avatar" style="width:84px;height:84px;font-size:26px;margin:0 auto 14px;">RA</div>
+              <h3 style="font-size:17px;">Sheikh Redwan Ahad</h3>
+              <div class="text-secondary" style="font-size:13px;margin-top:2px;">Student · Dept. of CSE</div>
+              <div class="flex justify-between mt-20" style="text-align:left;font-size:12.5px;"><span class="text-secondary">Student ID</span><span class="mono">242-35-601</span></div>
+              <div class="flex justify-between mt-8" style="text-align:left;font-size:12.5px;"><span class="text-secondary">Email</span><span class="mono" style="word-break:break-all;">redwan242-35-601@diu.edu.bd</span></div>
+              <div class="flex justify-between mt-8" style="text-align:left;font-size:12.5px;"><span class="text-secondary">Standing</span><span class="badge badge-green">Good standing</span></div>
+            </div>
+          </div>
+          <div class="card card-pad col-8">
+            <div class="card-head"><div><h3>Biometric enrollment</h3><div class="sub">Modalities on file for identity verification</div></div><span class="badge badge-green">Fully enrolled</span></div>
+            <div class="grid grid-3">
+              <div class="card" style="padding:16px;text-align:center;background:var(--surface-2);border:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:24px;height:24px;margin:0 auto 8px;color:#12776D;"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><div style="font-size:12.5px;font-weight:600;">Facial geometry</div><div class="text-secondary" style="font-size:11px;margin-top:2px;">Captured Jan 14, 2026</div></div>
+              <div class="card" style="padding:16px;text-align:center;background:var(--surface-2);border:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:24px;height:24px;margin:0 auto 8px;color:#12776D;"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg><div style="font-size:12.5px;font-weight:600;">Iris pattern</div><div class="text-secondary" style="font-size:11px;margin-top:2px;">Captured Jan 14, 2026</div></div>
+              <div class="card" style="padding:16px;text-align:center;background:var(--surface-2);border:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:24px;height:24px;margin:0 auto 8px;color:#12776D;"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 11a7 7 0 0 1-14 0M12 18v4"/></svg><div style="font-size:12.5px;font-weight:600;">Voice-print</div><div class="text-secondary" style="font-size:11px;margin-top:2px;">Captured Jan 14, 2026</div></div>
+            </div>
+
+            <div class="card-head mt-20" style="margin-top:26px;"><div><h3>Notification preferences</h3><div class="sub">Choose what you get notified about</div></div></div>
+            <div class="flex justify-between items-center" style="padding:10px 0;border-bottom:1px solid var(--surface-2);"><span style="font-size:13.5px;">Low-attendance warnings</span><label class="toggle"><input type="checkbox" checked><span class="track"></span></label></div>
+            <div class="flex justify-between items-center" style="padding:10px 0;border-bottom:1px solid var(--surface-2);"><span style="font-size:13.5px;">Course announcements</span><label class="toggle"><input type="checkbox" checked><span class="track"></span></label></div>
+            <div class="flex justify-between items-center" style="padding:10px 0;"><span style="font-size:13.5px;">Share attendance summary with guardian</span><label class="toggle"><input type="checkbox" checked><span class="track"></span></label></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/attendance-engine.js"></script>
+<script src="js/fep-toast.js"></script>
+<script>
+  (function(){
+    const latest = FEP.latestAttendance();
+    if(latest && latest.studentId === '242-35-601' && FEP.isNew('student-redwan', latest)){
+      fepShowToast('Attendance marked present', latest.course + ' · verified by Face Scanner at ' + latest.time, 'success');
+      FEP.markSeen('student-redwan', latest);
+    }
+  })();
+</script>
+</body>
+</html>

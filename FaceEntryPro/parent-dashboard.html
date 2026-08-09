@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parent Portal — FaceEntryPro</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/scanner.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div><div class="brand-name">FaceEntry<span>Pro</span></div><div class="brand-sub">Parent Portal</div></div>
+    </div>
+
+    <div class="nav-label">Overview</div>
+    <a href="#overview" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="11" width="8" height="10" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/></svg>Dashboard</a>
+
+    <div class="nav-label">Redwan's records</div>
+    <a href="#attendance" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>Attendance Summary</a>
+    <a href="#notices" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>Notices</a>
+
+    <div class="nav-label">Account</div>
+    <a href="#settings" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg>Settings</a>
+
+    <div class="sidebar-footer">
+      <a href="#settings" class="sidebar-user">
+        <span class="avatar">AA</span>
+        <div><div class="name">Sheikh Abdul Ahad</div><div class="role">Parent / Guardian</div></div>
+      </a>
+    </div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div class="flex items-center">
+        <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="topbar-title">
+          <h1>Welcome, Mr. Ahad</h1>
+          <div class="crumb">Viewing Sheikh Redwan Ahad's progress · Fall Semester</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <a href="login.html" class="btn btn-ghost btn-sm">Sign out</a>
+        <a href="#settings"><span class="avatar">AA</span></a>
+      </div>
+    </header>
+
+    <main class="main">
+
+      <div id="overview" class="page-section">
+        <div class="hero-banner">
+          <div class="l">
+            <h2>Redwan has maintained excellent attendance this semester</h2>
+            <p>92% overall attendance across all 6 enrolled courses — comfortably above the university's 75% minimum.</p>
+          </div>
+          <div class="r"><a href="#attendance" class="btn btn-scan btn-sm">View full summary</a></div>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Overall attendance</div><div class="stat-value">92%</div></div><div class="stat-icon" style="background:#E8FBF8;color:#12776D;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div></div>
+            <div class="stat-delta up">↑ 2% vs last month</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Academic standing</div><div class="stat-value" style="font-size:22px;">Good</div></div><div class="stat-icon" style="background:var(--green-bg);color:#1D8A54;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="10" r="2.4"/></svg></div></div>
+            <div class="stat-delta flat">No alerts this month</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Last check-in</div><div class="stat-value" style="font-size:22px;">Today</div></div><div class="stat-icon" style="background:var(--surface-2);color:var(--text-secondary);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg></div></div>
+            <div class="stat-delta flat">08:52 AM · on campus</div>
+          </div>
+        </div>
+
+        <div class="card card-pad mt-20">
+          <div class="card-head"><div><h3>Attendance trend</h3><div class="sub">Last 6 weeks, all courses combined</div></div></div>
+          <div class="bar-chart">
+            <div class="col"><div class="stack" style="height:96%;"><div class="seg-present" style="height:96%"></div></div><div class="lbl">Wk 1</div></div>
+            <div class="col"><div class="stack" style="height:90%;"><div class="seg-present" style="height:90%"></div></div><div class="lbl">Wk 2</div></div>
+            <div class="col"><div class="stack" style="height:100%;"><div class="seg-present" style="height:100%"></div></div><div class="lbl">Wk 3</div></div>
+            <div class="col"><div class="stack" style="height:84%;"><div class="seg-present" style="height:84%"></div></div><div class="lbl">Wk 4</div></div>
+            <div class="col"><div class="stack" style="height:93%;"><div class="seg-present" style="height:93%"></div></div><div class="lbl">Wk 5</div></div>
+            <div class="col"><div class="stack" style="height:88%;"><div class="seg-present" style="height:88%"></div></div><div class="lbl">Wk 6</div></div>
+          </div>
+          <p class="text-secondary mt-8" style="font-size:12px;">Attendance is shown as a percentage only — FaceEntryPro does not share biometric scans or campus-entry footage with guardian accounts.</p>
+        </div>
+      </div>
+
+      <div id="attendance" class="page-section mt-20">
+        <div class="card card-pad">
+          <div class="card-head">
+            <div><h3>Attendance by course</h3><div class="sub">Fall semester, to date</div></div>
+            <a href="#" class="btn btn-ghost btn-sm">Download summary</a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Course</th><th>Attendance</th><th>Standing</th></tr></thead>
+              <tbody>
+                <tr><td>Theory of Computing</td><td><div class="confidence"><div class="confidence-track"><div class="confidence-fill" style="width:94%;"></div></div><span class="confidence-val">94%</span></div></td><td><span class="badge badge-green">Good</span></td></tr>
+                <tr><td>Operating System</td><td><div class="confidence"><div class="confidence-track"><div class="confidence-fill" style="width:90%;"></div></div><span class="confidence-val">90%</span></div></td><td><span class="badge badge-green">Good</span></td></tr>
+                <tr><td>Operating System Lab</td><td><div class="confidence"><div class="confidence-track"><div class="confidence-fill" style="width:96%;"></div></div><span class="confidence-val">96%</span></div></td><td><span class="badge badge-green">Good</span></td></tr>
+                <tr><td>Website and Desktop Development</td><td><div class="confidence"><div class="confidence-track"><div class="confidence-fill" style="width:81%;background:var(--amber);"></div></div><span class="confidence-val">81%</span></div></td><td><span class="badge badge-amber">Watch</span></td></tr>
+                <tr><td>Website and Desktop Development Lab</td><td><div class="confidence"><div class="confidence-track"><div class="confidence-fill" style="width:88%;"></div></div><span class="confidence-val">88%</span></div></td><td><span class="badge badge-green">Good</span></td></tr>
+                <tr><td>System Analysis and Design — Capstone Project</td><td><div class="confidence"><div class="confidence-track"><div class="confidence-fill" style="width:97%;"></div></div><span class="confidence-val">97%</span></div></td><td><span class="badge badge-green">Good</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="notices" class="page-section mt-20">
+        <div class="card card-pad">
+          <div class="card-head"><div><h3>Notices</h3><div class="sub">Shared with your account, based on Redwan's notification settings</div></div></div>
+          <div class="notice-item">
+            <div class="notice-icon" style="background:var(--amber-bg);color:#97650C;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9L2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+            <div><div class="notice-title">Attendance reminder — Website and Desktop Development</div><div class="notice-body">Redwan's attendance in this course is at 81%, approaching the 75% minimum required for exam eligibility.</div><div class="notice-time">Aug 11, 2026 · 6:02 PM</div></div>
+          </div>
+          <div class="notice-item">
+            <div class="notice-icon" style="background:var(--green-bg);color:#1D8A54;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><div class="notice-title">Monthly attendance summary available</div><div class="notice-body">Redwan's July attendance summary (91% average) has been generated and is ready to download.</div><div class="notice-time">Aug 1, 2026 · 8:00 AM</div></div>
+          </div>
+          <div class="notice-item">
+            <div class="notice-icon" style="background:var(--blue-bg);color:#2A56C6;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg></div>
+            <div><div class="notice-title">Campus-wide notice</div><div class="notice-body">Mid-semester break runs August 20–24. Regular attendance tracking resumes August 25.</div><div class="notice-time">Jul 28, 2026 · 9:15 AM</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="settings" class="page-section mt-20">
+        <div class="grid grid-12">
+          <div class="card card-pad col-4">
+            <div style="text-align:center;">
+              <div class="avatar" style="width:84px;height:84px;font-size:26px;margin:0 auto 14px;">AA</div>
+              <h3 style="font-size:17px;">Sheikh Abdul Ahad</h3>
+              <div class="text-secondary" style="font-size:13px;margin-top:2px;">Parent / Guardian account</div>
+              <div class="flex justify-between mt-20" style="text-align:left;font-size:12.5px;"><span class="text-secondary">Email</span><span class="mono">ahad123@gmail.com</span></div>
+              <div class="flex justify-between mt-8" style="text-align:left;font-size:12.5px;"><span class="text-secondary">Linked student</span><span>Sheikh Redwan Ahad</span></div>
+              <div class="flex justify-between mt-8" style="text-align:left;font-size:12.5px;"><span class="text-secondary">Relationship</span><span>Father</span></div>
+              <button class="btn btn-ghost btn-sm mt-20" style="width:100%;">Edit account</button>
+            </div>
+          </div>
+          <div class="card card-pad col-8">
+            <div class="card-head"><div><h3>Notification preferences</h3><div class="sub">Choose what you'd like to be notified about</div></div></div>
+            <div class="flex justify-between items-center" style="padding:10px 0;border-bottom:1px solid var(--surface-2);"><span style="font-size:13.5px;">Low-attendance warnings</span><label class="toggle"><input type="checkbox" checked><span class="track"></span></label></div>
+            <div class="flex justify-between items-center" style="padding:10px 0;border-bottom:1px solid var(--surface-2);"><span style="font-size:13.5px;">Weekly attendance summary</span><label class="toggle"><input type="checkbox" checked><span class="track"></span></label></div>
+            <div class="flex justify-between items-center" style="padding:10px 0;border-bottom:1px solid var(--surface-2);"><span style="font-size:13.5px;">Campus-wide announcements</span><label class="toggle"><input type="checkbox"><span class="track"></span></label></div>
+
+            <div class="card" style="background:var(--surface-2);border:none;padding:14px 16px;margin-top:18px;">
+              <div class="flex items-center gap-12">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:18px;height:18px;color:var(--text-secondary);flex-shrink:0;"><path d="M12 20s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="10" r="2.4"/></svg>
+                <p style="font-size:12px;color:var(--text-secondary);line-height:1.6;">This account is opt-in and can be unlinked by Redwan at any time. Guardian accounts see attendance percentages and notices only — never biometric scans, gate footage, or recognition confidence data.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/attendance-engine.js"></script>
+<script src="js/fep-toast.js"></script>
+<script>
+  (function(){
+    const latest = FEP.latestAttendance();
+    if(latest && latest.studentId === '242-35-601' && FEP.isNew('parent-redwan', latest)){
+      fepShowToast('Redwan just checked in', latest.course + ' · ' + latest.time + ' · Present', 'success');
+      FEP.markSeen('parent-redwan', latest);
+    }
+  })();
+</script>
+</body>
+</html>

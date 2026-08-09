@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Face Recognition Scanner — FaceEntryPro</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/scanner.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div><div class="brand-name">FaceEntry<span>Pro</span></div><div class="brand-sub" id="brandSub">Campus Intelligence</div></div>
+    </div>
+
+    <div class="nav-label">Overview</div>
+    <a href="dashboard.html" class="nav-item" id="navDashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="11" width="8" height="10" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/></svg>Dashboard</a>
+    <a href="attendance.html" class="nav-item" id="navLiveAttendance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span id="navLiveAttendanceLabel">Live Attendance</span></a>
+
+    <div class="nav-label">AI Recognition</div>
+    <a href="attendance-scanner.html" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/><circle cx="12" cy="13" r="1.6"/></svg>Face Scanner</a>
+    <a href="register-student.html" class="nav-item" id="navRegister"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M17 8h4M19 6v4"/></svg>Register Student</a>
+
+    <div class="nav-label" id="navDirectoryLabel">Directory</div>
+    <a href="students.html" class="nav-item" id="navStudents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="18" cy="8" r="2.6"/><path d="M15.5 14.2c2.6.3 4.5 2.5 4.5 5.8"/></svg>Students</a>
+    <a href="faculty.html" class="nav-item" id="navFacultyDir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Faculty</a>
+
+    <div class="nav-label" id="navIntelLabel">Intelligence</div>
+    <a href="analytics.html" class="nav-item" id="navAnalytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg>Predictive Analytics</a>
+    <a href="campus-intelligence.html" class="nav-item" id="navCampusIntel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg>Campus Intelligence</a>
+    <a href="reports.html" class="nav-item" id="navReports"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l3 3v15H6z"/><path d="M9 12h6M9 16h6M9 8h3"/></svg>Reports</a>
+
+    <div class="sidebar-footer">
+      <a href="profile.html" class="sidebar-user" id="sidebarFooterLink">
+        <span class="avatar" id="footerAvatar">SR</span>
+        <div><div class="name" id="footerName">Dr. S. Rahman</div><div class="role" id="footerRole">Administrator</div></div>
+      </a>
+    </div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div class="flex items-center">
+        <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="topbar-title"><h1>Face Recognition Scanner</h1><div class="crumb">Live biometric capture · liveness check · identity match</div></div>
+      </div>
+      <div class="topbar-right">
+        <div class="live-pill"><span class="live-dot"></span>Engine ready</div>
+        <a href="profile.html" id="topbarAvatarLink"><span class="avatar">SR</span></a>
+      </div>
+    </header>
+
+    <main class="main">
+
+      <div class="scanner-grid">
+
+        <!-- Camera / scan panel -->
+        <div class="scan-panel">
+          <div class="scan-panel-head">
+            <h3>Live Recognition</h3>
+            <span class="scan-status-chip" id="scanStatusChip"><span class="dot"></span><span id="scanStatusText">Camera off</span></span>
+          </div>
+
+          <div class="camera-window" id="cameraWindow">
+            <div class="scan-grid-overlay"></div>
+            <video id="camVideo" autoplay muted playsinline style="display:none;"></video>
+            <div class="demo-feed" id="demoFeed" style="display:none;"><span class="demo-feed-badge">Demo feed · camera unavailable</span></div>
+            <div class="camera-placeholder" id="cameraPlaceholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/><circle cx="12" cy="13" r="1.6"/></svg>
+              <div class="t">Camera is off</div>
+              <div class="s">Start the camera to begin. If browser access is blocked (e.g. opened as a local file), a demo feed will be used automatically.</div>
+            </div>
+            <div class="detect-frame" id="detectFrame">
+              <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+              <span class="sweep"></span>
+            </div>
+          </div>
+
+          <div class="mono" id="scanTicker" style="margin-top:12px; font-size:12.5px; color: var(--scan); min-height:16px;">Awaiting start…</div>
+
+          <div class="stage-list" id="stageList">
+            <div class="stage-row" data-key="init"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Initializing camera</div>
+            <div class="stage-row" data-key="detect"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Detecting face</div>
+            <div class="stage-row" data-key="blink"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Liveness: blink detection</div>
+            <div class="stage-row" data-key="headturn"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Liveness: head turn detection</div>
+            <div class="stage-row" data-key="angle"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Liveness: face angle verification</div>
+            <div class="stage-row" data-key="antispoof"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Liveness: anti-spoof check</div>
+            <div class="stage-row" data-key="extract"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Extracting facial features</div>
+            <div class="stage-row" data-key="compare"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Comparing with biometric database</div>
+            <div class="stage-row" data-key="verify"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Identity verification</div>
+          </div>
+
+          <div class="scan-progress-track"><div class="scan-progress-fill" id="scanProgressFill"></div></div>
+
+          <div class="scan-controls">
+            <button class="btn btn-ghost" id="btnStartCamera" style="background:rgba(255,255,255,0.06);color:#fff;border-color:var(--ink-line);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+              Start Camera
+            </button>
+            <button class="btn btn-scan" id="btnScan" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+              Scan Face
+            </button>
+          </div>
+
+          <div class="sim-controls">
+            <label>Prototype control — simulated recognition outcome</label>
+            <select id="simMode">
+              <option value="auto">Auto (weighted random)</option>
+              <option value="success">Force: successful match</option>
+              <option value="unknown">Force: unknown person</option>
+              <option value="spoof">Force: spoofing attempt</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Result panel -->
+        <div class="result-panel">
+          <div class="result-card" id="resultCard">
+            <div class="result-idle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+              <div class="t">No scan yet</div>
+              <div class="s">Start the camera, then press Scan Face to run the recognition pipeline.</div>
+            </div>
+          </div>
+
+          <div class="grid grid-3">
+            <div class="card live-stat"><div class="n" id="statToday">—</div><div class="l">Present today</div></div>
+            <div class="card live-stat"><div class="n" id="statRegistered">—</div><div class="l">Registered students</div></div>
+            <div class="card live-stat"><div class="n" id="statConfidence">—</div><div class="l">Avg. confidence</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics -->
+      <div class="grid grid-12 mt-20">
+        <div class="card card-pad col-4">
+          <div class="card-head"><div><h3>Today's presence</h3><div class="sub">Operating System · Sec B cohort</div></div></div>
+          <div style="display:flex; justify-content:center; padding: 6px 0;">
+            <div class="donut mini-donut" id="donutChart"><div class="hole"><div class="n" id="donutPct">—</div><div class="l">Present</div></div></div>
+          </div>
+        </div>
+        <div class="card card-pad col-4">
+          <div class="card-head"><div><h3>Weekly attendance</h3><div class="sub">Scans recorded per day</div></div></div>
+          <div class="bar-chart" id="weeklyBars" style="height:120px;"></div>
+        </div>
+        <div class="card card-pad col-4">
+          <div class="card-head"><div><h3>Monthly trend</h3><div class="sub">Attendance rate, last 6 weeks</div></div></div>
+          <div class="line-chart-wrap"><svg id="lineChart" viewBox="0 0 280 100" preserveAspectRatio="none"></svg></div>
+        </div>
+      </div>
+
+      <!-- History -->
+      <div class="card card-pad mt-20">
+        <div class="card-head">
+          <div><h3>Attendance history</h3><div class="sub">Updates instantly after every scan — no page refresh</div></div>
+          <a href="attendance.html" class="btn btn-ghost btn-sm">Open full log</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Student</th><th>ID</th><th>Course</th><th>Date</th><th>Time</th><th>Verification</th><th>Confidence</th><th>Status</th></tr></thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+        <p class="text-secondary mt-12" style="font-size:12px;">A matched scan also appears as a live notification on the Faculty Dashboard, and a blocked spoofing attempt raises a security alert on the Admin Dashboard and Campus Intelligence console.</p>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/attendance-engine.js"></script>
+<script>
+(function(){
+  const role = new URLSearchParams(location.search).get('role');
+  if(role === 'faculty'){
+    document.getElementById('brandSub').textContent = 'Faculty Portal';
+    document.getElementById('navDashboard').setAttribute('href', 'faculty-dashboard.html');
+    document.getElementById('navLiveAttendance').setAttribute('href', 'faculty-dashboard.html#attendance');
+    document.getElementById('navLiveAttendanceLabel').textContent = 'Section Attendance';
+    document.getElementById('navReports').setAttribute('href', 'faculty-dashboard.html#reports');
+    ['navRegister','navDirectoryLabel','navStudents','navFacultyDir','navIntelLabel','navAnalytics','navCampusIntel'].forEach(id => {
+      const el = document.getElementById(id);
+      if(el) el.style.display = 'none';
+    });
+    document.getElementById('footerName').textContent = 'MD. Selim Reza';
+    document.getElementById('footerRole').textContent = 'Faculty · Dept. of CSE';
+    document.getElementById('sidebarFooterLink').setAttribute('href', 'faculty-dashboard.html#profile');
+    document.getElementById('topbarAvatarLink').setAttribute('href', 'faculty-dashboard.html#profile');
+  }
+})();
+</script>
+<script>
+(function(){
+  const STAGES = [
+    { key:'init',      label:'Initializing camera…' },
+    { key:'detect',    label:'Detecting face…' },
+    { key:'blink',     label:'Liveness: blink detection…' },
+    { key:'headturn',  label:'Liveness: head turn detection…' },
+    { key:'angle',     label:'Liveness: face angle verification…' },
+    { key:'antispoof', label:'Liveness: anti-spoof check…' },
+    { key:'extract',   label:'Extracting facial features…' },
+    { key:'compare',   label:'Comparing with biometric database…' },
+    { key:'verify',    label:'Identity verification…' }
+  ];
+  const COHORT_SIZE = 44;
+  const WEEKLY_BASE = [38, 40, 34, 39, 30, 12];
+  const MONTHLY_BASE = [88, 90, 84, 93, 88, 91];
+
+  const el = id => document.getElementById(id);
+  const video = el('camVideo');
+  const demoFeed = el('demoFeed');
+  const placeholder = el('cameraPlaceholder');
+  const detectFrame = el('detectFrame');
+  const chip = el('scanStatusChip');
+  const chipText = el('scanStatusText');
+  const ticker = el('scanTicker');
+  const progressFill = el('scanProgressFill');
+  const btnStart = el('btnStartCamera');
+  const btnScan = el('btnScan');
+  const resultCard = el('resultCard');
+
+  let cameraReady = false;
+  let scanning = false;
+
+  function delay(ms){ return new Promise(r => setTimeout(r, ms)); }
+  function initials(name){ return name.split(' ').filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join(''); }
+  function setChip(mode, text){
+    chip.className = 'scan-status-chip ' + mode;
+    chipText.textContent = text;
+  }
+
+  // ---------- camera ----------
+  btnStart.addEventListener('click', function(){
+    btnStart.disabled = true;
+    if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+      activateDemoFeed();
+      return;
+    }
+    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+      .then(function(stream){
+        video.srcObject = stream;
+        video.style.display = 'block';
+        placeholder.style.display = 'none';
+        cameraReady = true;
+        setChip('live', 'Camera live');
+        btnScan.disabled = false;
+      })
+      .catch(function(){ activateDemoFeed(); });
+  });
+
+  function activateDemoFeed(){
+    demoFeed.style.display = 'block';
+    placeholder.style.display = 'none';
+    cameraReady = true;
+    setChip('live', 'Demo mode');
+    btnScan.disabled = false;
+  }
+
+  // ---------- stage helpers ----------
+  function resetStages(){
+    document.querySelectorAll('.stage-row').forEach(row => row.className = 'stage-row');
+    progressFill.style.width = '0%';
+    detectFrame.className = 'detect-frame';
+  }
+  function setStage(index, state){
+    const row = document.querySelectorAll('.stage-row')[index];
+    if(row) row.className = 'stage-row ' + state;
+  }
+
+  // ---------- scan sequence ----------
+  btnScan.addEventListener('click', async function(){
+    if(scanning || !cameraReady) return;
+    scanning = true;
+    btnScan.disabled = true;
+    btnStart.disabled = true;
+    setChip('busy', 'Scanning…');
+    resetStages();
+    resultCard.className = 'result-card';
+    resultCard.innerHTML = '<div class="result-idle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg><div class="t">Running recognition pipeline…</div><div class="s">Hold steady — this takes a few seconds.</div></div>';
+
+    const mode = el('simMode').value;
+    let outcome = mode;
+    if(mode === 'auto'){
+      const r = Math.random();
+      outcome = r < 0.65 ? 'success' : (r < 0.85 ? 'unknown' : 'spoof');
+    }
+    const student = FEP.randomStudent();
+
+    for(let i = 0; i < STAGES.length; i++){
+      setStage(i, 'active');
+      ticker.textContent = STAGES[i].label;
+      progressFill.style.width = (((i+1) / STAGES.length) * 100) + '%';
+      if(i === 1){ detectFrame.classList.add('on'); }
+      await delay(420 + Math.random()*260);
+
+      if(outcome === 'spoof' && STAGES[i].key === 'antispoof'){
+        setStage(i, 'fail');
+        detectFrame.classList.add('bad');
+        await delay(300);
+        renderSpoofResult();
+        finishScan();
+        return;
+      }
+      if(outcome === 'unknown' && STAGES[i].key === 'compare'){
+        setStage(i, 'fail');
+        detectFrame.classList.add('bad');
+        await delay(300);
+        renderUnknownResult();
+        finishScan();
+        return;
+      }
+      setStage(i, 'done');
+    }
+
+    detectFrame.classList.add('ok');
+    renderSuccessResult(student);
+    finishScan();
+  });
+
+  function finishScan(){
+    scanning = false;
+    btnScan.disabled = false;
+    btnStart.disabled = false;
+    btnScan.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> Scan Again';
+    setChip('live', 'Ready');
+  }
+
+  // ---------- result renderers ----------
+  function renderSuccessResult(student){
+    const name = student ? student.name : 'Unknown Student';
+    const id = student ? student.id : '—';
+    const dept = student ? student.department : '—';
+    const course = student ? student.course : '—';
+    const photo = student && student.photos && student.photos.length ? student.photos[0] : null;
+    const confidence = (95 + Math.random()*4.4).toFixed(1);
+    const now = new Date();
+    const dateStr = FEP.fmtDate(now);
+    const timeStr = FEP.fmtTime(now);
+
+    resultCard.className = 'result-card result-success';
+    resultCard.innerHTML = `
+      <div class="result-banner">
+        <div class="icon" style="background:var(--green-bg);color:#1D8A54;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><h3>Identity Verified</h3><p>Match found in biometric database</p></div>
+      </div>
+      <div class="result-body">
+        <div class="result-photo">${photo ? `<img src="${photo}" alt="${name}">` : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:22px;">${initials(name)}</div>`}</div>
+        <div class="result-details">
+          <div class="field"><label>Name</label><div class="val">${name}</div></div>
+          <div class="field"><label>Student ID</label><div class="val mono">${id}</div></div>
+          <div class="field"><label>Department</label><div class="val">${dept}</div></div>
+          <div class="field"><label>Course</label><div class="val">${course}</div></div>
+          <div class="field"><label>Liveness</label><div class="val" style="color:#1D8A54;">Verified</div></div>
+          <div class="field"><label>Timestamp</label><div class="val mono">${timeStr}</div></div>
+        </div>
+      </div>
+      <div class="confidence-big"><div class="num">${confidence}%</div><div class="bar"><span style="width:${confidence}%;background:var(--green);"></span></div></div>
+      <div class="success-toast"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Attendance Marked Successfully</div>
+    `;
+
+    if(student){
+      FEP.addAttendance({
+        studentId: student.id, name: student.name, department: student.department,
+        course: student.course, date: dateStr, time: timeStr,
+        status: 'Present', confidence: parseFloat(confidence), method: 'Face+Liveness'
+      });
+    }
+    refreshAll();
+  }
+
+  function renderUnknownResult(){
+    resultCard.className = 'result-card result-warn';
+    resultCard.innerHTML = `
+      <div class="result-banner">
+        <div class="icon" style="background:var(--amber-bg);color:#97650C;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9L2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+        <div><h3>Unknown Person</h3><p>Face Not Registered</p></div>
+      </div>
+      <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">No matching biometric profile was found in the database for this face. The attempt has been logged for review, but no attendance record was created.</p>
+      <div class="success-toast" style="background:var(--amber-bg);color:#97650C;"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4.5m0 3.5h.01"/></svg>Attendance Not Recorded</div>
+    `;
+    FEP.addEvent({ type:'unknown', message:'Unrecognized face at Face Scanner', gate:'Face Scanner', severity:'medium' });
+  }
+
+  function renderSpoofResult(){
+    resultCard.className = 'result-card result-fail';
+    resultCard.innerHTML = `
+      <div class="result-banner">
+        <div class="icon" style="background:var(--red-bg);color:#C13030;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></div>
+        <div><h3>Spoofing Detected</h3><p>Authentication Failed</p></div>
+      </div>
+      <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">The anti-spoof check identified signs of a presentation attack (printed photo, screen replay, or mask). Access was denied and no attendance record was created.</p>
+      <div class="success-toast" style="background:var(--red-bg);color:#C13030;"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4.5m0 3.5h.01"/></svg>Security Alert Generated — sent to Administrator Dashboard</div>
+    `;
+    FEP.addEvent({ type:'spoof', message:'Spoofing attempt detected at Face Scanner', gate:'Face Scanner', severity:'high' });
+  }
+
+  // ---------- analytics / history ----------
+  function refreshLiveStats(){
+    const today = FEP.todayCount();
+    el('statToday').textContent = today;
+    el('statRegistered').textContent = FEP.getStudents().length;
+    const log = FEP.getLog().filter(e => e.status === 'Present' && typeof e.confidence === 'number');
+    const avg = log.length ? (log.reduce((a,e)=>a+e.confidence,0) / log.length).toFixed(1) + '%' : '—';
+    el('statConfidence').textContent = avg;
+  }
+
+  function refreshDonut(){
+    const present = Math.min(FEP.todayCount(), COHORT_SIZE);
+    const pct = Math.round((present / COHORT_SIZE) * 100);
+    el('donutChart').style.background = `conic-gradient(var(--scan) 0% ${pct}%, var(--surface-2) ${pct}% 100%)`;
+    el('donutPct').textContent = pct + '%';
+  }
+
+  function refreshWeeklyBars(){
+    const bumped = WEEKLY_BASE.slice();
+    bumped[bumped.length-1] = Math.min(COHORT_SIZE, bumped[bumped.length-1] + FEP.todayCount());
+    const max = COHORT_SIZE;
+    const labels = ['Mon','Tue','Wed','Thu','Fri','Sat'];
+    const wrap = el('weeklyBars');
+    wrap.innerHTML = bumped.map((v,i) => {
+      const h = Math.round((v/max)*100);
+      return `<div class="col"><div class="stack" style="height:${h}%;"><div class="seg-present" style="height:100%;"></div></div><div class="lbl">${labels[i]}</div></div>`;
+    }).join('');
+  }
+
+  function refreshLineChart(){
+    const bumped = MONTHLY_BASE.slice();
+    bumped[bumped.length-1] = Math.min(100, bumped[bumped.length-1] + Math.round(FEP.todayCount()/COHORT_SIZE*5));
+    const w = 280, h = 100, pad = 10;
+    const stepX = (w - pad*2) / (bumped.length - 1);
+    const pts = bumped.map((v,i) => [pad + i*stepX, h - pad - ((v-70)/(100-70)) * (h-pad*2)]);
+    const linePath = pts.map((p,i)=> (i===0?'M':'L') + p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ');
+    const areaPath = linePath + ` L${pts[pts.length-1][0]},${h} L${pts[0][0]},${h} Z`;
+    const svg = el('lineChart');
+    svg.innerHTML = `<path class="area" d="${areaPath}"></path><path class="line" d="${linePath}"></path>` +
+      pts.map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="3"></circle>`).join('');
+  }
+
+  function refreshHistoryTable(){
+    const rows = FEP.getLog().slice(0, 8);
+    el('historyBody').innerHTML = rows.map(r => `
+      <tr>
+        <td class="cell-person"><span class="cell-avatar">${initials(r.name)}</span><div><div class="cell-name">${r.name}</div><div class="cell-sub">${r.department||''}</div></div></td>
+        <td class="mono">${r.studentId}</td>
+        <td>${r.course}</td>
+        <td class="mono">${r.date}</td>
+        <td class="mono">${r.time}</td>
+        <td><span class="badge badge-blue">${r.method}</span></td>
+        <td class="mono">${typeof r.confidence === 'number' ? r.confidence.toFixed(1)+'%' : '—'}</td>
+        <td><span class="badge badge-green">${r.status}</span></td>
+      </tr>
+    `).join('');
+  }
+
+  function refreshAll(){
+    refreshLiveStats();
+    refreshDonut();
+    refreshWeeklyBars();
+    refreshLineChart();
+    refreshHistoryTable();
+  }
+
+  refreshAll();
+})();
+</script>
+</body>
+</html>

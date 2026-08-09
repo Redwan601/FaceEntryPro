@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Intelligence — FaceEntryPro</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/scanner.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark"></span><div><div class="brand-name">FaceEntry<span>Pro</span></div><div class="brand-sub">Campus Intelligence</div></div></div>
+    <div class="nav-label">Overview</div>
+    <a href="dashboard.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="11" width="8" height="10" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/></svg>Dashboard</a>
+    <a href="attendance.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>Live Attendance</a>
+
+    <div class="nav-label">AI Recognition</div>
+    <a href="attendance-scanner.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/><circle cx="12" cy="13" r="1.6"/></svg>Face Scanner</a>
+    <a href="register-student.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M17 8h4M19 6v4"/></svg>Register Student</a>
+
+    <div class="nav-label">Directory</div>
+    <a href="students.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="18" cy="8" r="2.6"/><path d="M15.5 14.2c2.6.3 4.5 2.5 4.5 5.8"/></svg>Students</a>
+    <a href="faculty.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Faculty</a>
+    <div class="nav-label">Intelligence</div>
+    <a href="analytics.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg>Predictive Analytics</a>
+    <a href="campus-intelligence.html" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg>Campus Intelligence<span class="badge-count">3</span></a>
+    <a href="reports.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l3 3v15H6z"/><path d="M9 12h6M9 16h6M9 8h3"/></svg>Reports</a>
+    <div class="sidebar-footer"><a href="profile.html" class="sidebar-user"><span class="avatar">SR</span><div><div class="name">Dr. S. Rahman</div><div class="role">Administrator</div></div></a></div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div class="flex items-center">
+        <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="topbar-title"><h1>Campus Intelligence</h1><div class="crumb">Spatiotemporal anomaly detection across all entry points</div></div>
+      </div>
+      <div class="topbar-right">
+        <div class="live-pill"><span class="live-dot"></span>Monitoring</div>
+        <a href="profile.html"><span class="avatar">SR</span></a>
+      </div>
+    </header>
+
+    <main class="main">
+
+      <div class="grid grid-4">
+        <div class="card stat-card">
+          <div class="stat-top"><div><div class="stat-label">Open alerts</div><div class="stat-value">3</div></div><div class="stat-icon" style="background:var(--red-bg);color:#C13030;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg></div></div>
+          <div class="stat-delta down">Requires review</div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-top"><div><div class="stat-label">Tailgating events</div><div class="stat-value">4</div></div><div class="stat-icon" style="background:var(--amber-bg);color:#97650C;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a4 4 0 0 0-3-3.87M9 20H4v-2a4 4 0 0 1 3-3.87M9 8a3 3 0 1 0 6 0 3 3 0 1 0-6 0M17 8a3 3 0 1 0 0 0"/></svg></div></div>
+          <div class="stat-delta flat">Last 24 hours</div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-top"><div><div class="stat-label">Spoofing attempts blocked</div><div class="stat-value">2</div></div><div class="stat-icon" style="background:#E8FBF8;color:#12776D;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></div></div>
+          <div class="stat-delta flat">Liveness layer held</div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-top"><div><div class="stat-label">Badge-sharing suspected</div><div class="stat-value">1</div></div><div class="stat-icon" style="background:var(--red-bg);color:#C13030;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg></div></div>
+          <div class="stat-delta down">Under investigation</div>
+        </div>
+      </div>
+
+      <div class="grid grid-12 mt-20">
+        <div class="card card-pad col-8">
+          <div class="card-head">
+            <div><h3>Active alerts</h3><div class="sub">Prioritized by severity and recency</div></div>
+            <select class="select"><option>All gates</option><option>Gate A</option><option>Gate B</option><option>Gate C</option><option>Gate D</option></select>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Event</th><th>Gate</th><th>Detected</th><th>Confidence</th><th>Severity</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="cell-person"><span class="alert-dot" style="background:var(--red-bg);color:#C13030;width:32px;height:32px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg></span><div><div class="cell-name">Possible badge sharing</div><div class="cell-sub">Same credential, two entry patterns</div></div></td>
+                  <td>Gate C</td><td class="mono">08:12</td><td class="mono">0.86</td><td><span class="badge badge-red">High</span></td><td><span class="badge badge-amber">Under review</span></td><td><button class="btn btn-ghost btn-sm">Investigate</button></td>
+                </tr>
+                <tr>
+                  <td class="cell-person"><span class="alert-dot" style="background:var(--amber-bg);color:#97650C;width:32px;height:32px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M17 20h5v-2a4 4 0 0 0-3-3.87M9 20H4v-2a4 4 0 0 1 3-3.87"/></svg></span><div><div class="cell-name">Tailgating detected</div><div class="cell-sub">Two entries, one verification</div></div></td>
+                  <td>Gate A</td><td class="mono">09:38</td><td class="mono">0.79</td><td><span class="badge badge-amber">Medium</span></td><td><span class="badge badge-amber">Flagged</span></td><td><button class="btn btn-ghost btn-sm">Investigate</button></td>
+                </tr>
+                <tr>
+                  <td class="cell-person"><span class="alert-dot" style="background:var(--red-bg);color:#C13030;width:32px;height:32px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M12 9v4m0 4h.01M10.3 3.9L2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><div><div class="cell-name">Irregular entry timing</div><div class="cell-sub">Access attempt outside enrolled schedule</div></div></td>
+                  <td>Gate D</td><td class="mono">23:47</td><td class="mono">0.91</td><td><span class="badge badge-red">High</span></td><td><span class="badge badge-amber">Under review</span></td><td><button class="btn btn-ghost btn-sm">Investigate</button></td>
+                </tr>
+                <tr>
+                  <td class="cell-person"><span class="alert-dot" style="background:var(--surface-2);color:var(--text-secondary);width:32px;height:32px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><rect x="3" y="7" width="18" height="13" rx="2"/></svg></span><div><div class="cell-name">Photo-spoof attempt</div><div class="cell-sub">Blocked by liveness detection</div></div></td>
+                  <td>Gate A</td><td class="mono">09:28</td><td class="mono">0.97</td><td><span class="badge badge-gray">Resolved</span></td><td><span class="badge badge-green">Blocked</span></td><td><button class="btn btn-ghost btn-sm">View log</button></td>
+                </tr>
+                <tr>
+                  <td class="cell-person"><span class="alert-dot" style="background:var(--surface-2);color:var(--text-secondary);width:32px;height:32px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><rect x="3" y="7" width="18" height="13" rx="2"/></svg></span><div><div class="cell-name">Screen-replay attempt</div><div class="cell-sub">Blocked by liveness detection</div></div></td>
+                  <td>Gate B</td><td class="mono">07:55</td><td class="mono">0.95</td><td><span class="badge badge-gray">Resolved</span></td><td><span class="badge badge-green">Blocked</span></td><td><button class="btn btn-ghost btn-sm">View log</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card card-pad col-4">
+          <div class="card-head"><div><h3>Entry heatmap</h3><div class="sub">Anomalies by gate, last 7 days</div></div></div>
+          <div class="risk-row"><div style="flex:1;font-size:13px;font-weight:600;">Gate A · Main Library</div><div class="risk-meter"><span style="width:74%;background:var(--red);"></span></div></div>
+          <div class="risk-row"><div style="flex:1;font-size:13px;font-weight:600;">Gate C · Engineering</div><div class="risk-meter"><span style="width:58%;background:var(--amber);"></span></div></div>
+          <div class="risk-row"><div style="flex:1;font-size:13px;font-weight:600;">Gate D · Dormitory</div><div class="risk-meter"><span style="width:41%;background:var(--amber);"></span></div></div>
+          <div class="risk-row"><div style="flex:1;font-size:13px;font-weight:600;">Gate B · East Wing</div><div class="risk-meter"><span style="width:18%;background:var(--green);"></span></div></div>
+          <div class="card" style="background:var(--surface-2);border:none;padding:14px 16px;margin-top:14px;">
+            <p style="font-size:12px;color:var(--text-secondary);line-height:1.6;">Gate A shows the highest anomaly concentration this week — mostly tailgating during the 09:30–09:45 peak entry window.</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/attendance-engine.js"></script>
+<script src="js/fep-toast.js"></script>
+<script>
+  (function(){
+    const evt = FEP.latestEvent();
+    if(FEP.isNew('campus-intel', evt)){
+      const isSpoof = evt.type === 'spoof';
+      fepShowToast(
+        isSpoof ? 'Security alert: spoofing attempt' : 'Unrecognized face flagged',
+        evt.message + ' · ' + new Date(evt.ts).toLocaleTimeString(),
+        'danger'
+      );
+      FEP.markSeen('campus-intel', evt);
+    }
+  })();
+</script>
+</body>
+</html>

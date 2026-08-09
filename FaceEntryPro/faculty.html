@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faculty — FaceEntryPro</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark"></span><div><div class="brand-name">FaceEntry<span>Pro</span></div><div class="brand-sub">Campus Intelligence</div></div></div>
+    <div class="nav-label">Overview</div>
+    <a href="dashboard.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="11" width="8" height="10" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/></svg>Dashboard</a>
+    <a href="attendance.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>Live Attendance</a>
+
+    <div class="nav-label">AI Recognition</div>
+    <a href="attendance-scanner.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/><circle cx="12" cy="13" r="1.6"/></svg>Face Scanner</a>
+    <a href="register-student.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M17 8h4M19 6v4"/></svg>Register Student</a>
+
+    <div class="nav-label">Directory</div>
+    <a href="students.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="18" cy="8" r="2.6"/><path d="M15.5 14.2c2.6.3 4.5 2.5 4.5 5.8"/></svg>Students</a>
+    <a href="faculty.html" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Faculty</a>
+    <div class="nav-label">Intelligence</div>
+    <a href="analytics.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg>Predictive Analytics</a>
+    <a href="campus-intelligence.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg>Campus Intelligence<span class="badge-count">3</span></a>
+    <a href="reports.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l3 3v15H6z"/><path d="M9 12h6M9 16h6M9 8h3"/></svg>Reports</a>
+    <div class="sidebar-footer"><a href="profile.html" class="sidebar-user"><span class="avatar">SR</span><div><div class="name">Dr. S. Rahman</div><div class="role">Administrator</div></div></a></div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div class="flex items-center">
+        <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="topbar-title"><h1>Faculty</h1><div class="crumb">212 faculty members across 6 departments</div></div>
+      </div>
+      <div class="topbar-right">
+        <div class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input placeholder="Search faculty..."></div>
+        <a href="profile.html"><span class="avatar">SR</span></a>
+      </div>
+    </header>
+
+    <main class="main">
+
+      <div class="grid grid-3">
+        <div class="card card-pad">
+          <div class="flex items-center gap-12"><span class="cell-avatar" style="width:44px;height:44px;font-size:14px;">SR</span><div><div class="cell-name" style="font-size:14.5px;">Dr. Sabbir Rahman</div><div class="cell-sub">Computer Science &amp; Engineering</div></div></div>
+          <div class="flex justify-between mt-20" style="font-size:12.5px;color:var(--text-secondary);"><span>3 sections · 118 students</span><span class="badge badge-green">96% avg attendance</span></div>
+          <a href="analytics.html" class="btn btn-ghost btn-sm mt-12" style="width:100%;">View sections</a>
+        </div>
+        <div class="card card-pad">
+          <div class="flex items-center gap-12"><span class="cell-avatar" style="width:44px;height:44px;font-size:14px;">FH</span><div><div class="cell-name" style="font-size:14.5px;">Dr. Farida Haque</div><div class="cell-sub">Electrical &amp; Electronic Engineering</div></div></div>
+          <div class="flex justify-between mt-20" style="font-size:12.5px;color:var(--text-secondary);"><span>2 sections · 84 students</span><span class="badge badge-amber">88% avg attendance</span></div>
+          <a href="analytics.html" class="btn btn-ghost btn-sm mt-12" style="width:100%;">View sections</a>
+        </div>
+        <div class="card card-pad">
+          <div class="flex items-center gap-12"><span class="cell-avatar" style="width:44px;height:44px;font-size:14px;">KI</span><div><div class="cell-name" style="font-size:14.5px;">Prof. Kamal Islam</div><div class="cell-sub">Business Administration</div></div></div>
+          <div class="flex justify-between mt-20" style="font-size:12.5px;color:var(--text-secondary);"><span>4 sections · 162 students</span><span class="badge badge-green">93% avg attendance</span></div>
+          <a href="analytics.html" class="btn btn-ghost btn-sm mt-12" style="width:100%;">View sections</a>
+        </div>
+      </div>
+
+      <div class="card card-pad mt-20">
+        <div class="card-head">
+          <div><h3>Faculty directory</h3><div class="sub">Access level and assigned sections</div></div>
+          <button class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Add faculty</button>
+        </div>
+        <div class="filters" style="margin-bottom:18px;">
+          <select class="select"><option>All departments</option><option>CSE</option><option>EEE</option><option>Business</option><option>Architecture</option></select>
+          <select class="select"><option>All access levels</option><option>Department Head</option><option>Instructor</option><option>Teaching Assistant</option></select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Faculty</th><th>ID</th><th>Department</th><th>Sections</th><th>Access level</th><th>Status</th><th></th></tr></thead>
+            <tbody>
+              <tr><td class="cell-person"><span class="cell-avatar">SR</span><div><div class="cell-name">Dr. Sabbir Rahman</div><div class="cell-sub">sabbir.rahman@faceentrypro.edu</div></div></td><td class="mono">FAC-0102</td><td>CSE</td><td>3</td><td><span class="badge badge-blue">Department Head</span></td><td><span class="badge badge-green">Active</span></td><td><a href="profile.html" class="btn btn-ghost btn-sm">View</a></td></tr>
+              <tr><td class="cell-person"><span class="cell-avatar">FH</span><div><div class="cell-name">Dr. Farida Haque</div><div class="cell-sub">farida.haque@faceentrypro.edu</div></div></td><td class="mono">FAC-0087</td><td>EEE</td><td>2</td><td><span class="badge badge-gray">Instructor</span></td><td><span class="badge badge-green">Active</span></td><td><a href="profile.html" class="btn btn-ghost btn-sm">View</a></td></tr>
+              <tr><td class="cell-person"><span class="cell-avatar">KI</span><div><div class="cell-name">Prof. Kamal Islam</div><div class="cell-sub">kamal.islam@faceentrypro.edu</div></div></td><td class="mono">FAC-0044</td><td>Business</td><td>4</td><td><span class="badge badge-blue">Department Head</span></td><td><span class="badge badge-green">Active</span></td><td><a href="profile.html" class="btn btn-ghost btn-sm">View</a></td></tr>
+              <tr><td class="cell-person"><span class="cell-avatar">NT</span><div><div class="cell-name">Nabila Tabassum</div><div class="cell-sub">nabila.tabassum@faceentrypro.edu</div></div></td><td class="mono">FAC-0231</td><td>CSE</td><td>2</td><td><span class="badge badge-gray">Teaching Assistant</span></td><td><span class="badge badge-amber">On leave</span></td><td><a href="profile.html" class="btn btn-ghost btn-sm">View</a></td></tr>
+              <tr><td class="cell-person"><span class="cell-avatar">MZ</span><div><div class="cell-name">Dr. Mizanur Zaman</div><div class="cell-sub">mizanur.zaman@faceentrypro.edu</div></div></td><td class="mono">FAC-0059</td><td>Architecture</td><td>2</td><td><span class="badge badge-gray">Instructor</span></td><td><span class="badge badge-green">Active</span></td><td><a href="profile.html" class="btn btn-ghost btn-sm">View</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

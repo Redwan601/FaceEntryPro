@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — FaceEntryPro</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="login-screen">
+
+  <div class="login-visual">
+    <div class="login-brand">
+      <span class="brand-mark"></span>
+      <span class="brand-name">FaceEntry<span>Pro</span></span>
+    </div>
+
+    <div class="login-hero">
+      <div class="eyebrow">Campus intelligence platform</div>
+      <h2>One glance in. Three signals verified.</h2>
+      <p>Face, iris and voice-print are matched on-device in under 1.2 seconds — no biometric data ever leaves the entry point.</p>
+
+      <div class="scan-mock">
+        <div class="scan-frame" style="width:100%;height:100%;">
+          <span class="scan-corner tl"></span><span class="scan-corner tr"></span>
+          <span class="scan-corner bl"></span><span class="scan-corner br"></span>
+          <span class="scan-line"></span>
+          <svg class="face-outline" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="140" cy="140" rx="70" ry="88" fill="none" stroke="#2A3B5C" stroke-width="1.4"/>
+            <circle cx="112" cy="128" r="3" fill="#2FD5C4"/>
+            <circle cx="168" cy="128" r="3" fill="#2FD5C4"/>
+            <path d="M124 168 Q140 178 156 168" stroke="#2A3B5C" stroke-width="1.4" fill="none"/>
+            <path d="M138 146 L134 162 L143 164" stroke="#2A3B5C" stroke-width="1.2" fill="none"/>
+          </svg>
+          <div class="scan-readout"><span>MATCH: 0.94</span><span class="ok">● LIVE</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-stats">
+      <div><div class="n">98.7%</div><div class="l">Recognition accuracy</div></div>
+      <div><div class="n">1.2s</div><div class="l">Avg. verification time</div></div>
+      <div><div class="n">0</div><div class="l">Biometric records sent off-device</div></div>
+    </div>
+  </div>
+
+  <div class="login-form-panel">
+    <div class="login-form">
+      <div class="login-form-head">
+        <h1>Welcome back</h1>
+        <p>Sign in to your FaceEntryPro console.</p>
+      </div>
+
+      <div class="role-switch" id="roleSwitch">
+        <button class="active" type="button" data-role="admin" data-dest="dashboard.html" data-email="admin@faceentrypro.edu">Admin</button>
+        <button type="button" data-role="faculty" data-dest="faculty-dashboard.html" data-email="selim.swe@diu.edu.bd">Faculty</button>
+        <button type="button" data-role="student" data-dest="student-dashboard.html" data-email="redwan242-35-601@diu.edu.bd">Student</button>
+        <button type="button" data-role="parent" data-dest="parent-dashboard.html" data-email="ahad123@gmail.com">Parent</button>
+      </div>
+
+      <form id="loginForm" action="dashboard.html">
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" type="email" placeholder="you@university.edu" value="admin@faceentrypro.edu">
+        </div>
+        <div class="field">
+          <label for="pass">Password</label>
+          <input class="input" id="pass" type="password" placeholder="••••••••" value="••••••••">
+        </div>
+        <div class="field-row">
+          <label class="checkbox-row"><input type="checkbox" checked> Keep me signed in</label>
+          <a href="#" class="link-scan">Forgot password?</a>
+        </div>
+        <a href="dashboard.html" id="signInBtn" class="btn btn-primary" style="width:100%;">Sign in</a>
+      </form>
+
+      <div class="divider-or">or verify with biometrics</div>
+
+      <a href="dashboard.html" id="biometricBtn" class="biometric-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        Scan face to sign in
+        <span class="live-dot"></span>
+      </a>
+
+      <script>
+        var roleButtons = document.querySelectorAll('#roleSwitch button');
+        roleButtons.forEach(function(btn){
+          btn.addEventListener('click', function(){
+            roleButtons.forEach(function(b){ b.classList.remove('active'); });
+            btn.classList.add('active');
+            document.getElementById('email').value = btn.getAttribute('data-email');
+            document.getElementById('signInBtn').setAttribute('href', btn.getAttribute('data-dest'));
+            document.getElementById('biometricBtn').setAttribute('href', btn.getAttribute('data-dest'));
+          });
+        });
+      </script>
+
+      <p class="login-footnote">Protected by on-device liveness detection · FaceEntryPro v2.4 prototype</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

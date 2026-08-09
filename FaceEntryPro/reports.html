@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports — FaceEntryPro</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark"></span><div><div class="brand-name">FaceEntry<span>Pro</span></div><div class="brand-sub">Campus Intelligence</div></div></div>
+    <div class="nav-label">Overview</div>
+    <a href="dashboard.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="11" width="8" height="10" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/></svg>Dashboard</a>
+    <a href="attendance.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>Live Attendance</a>
+
+    <div class="nav-label">AI Recognition</div>
+    <a href="attendance-scanner.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/><circle cx="12" cy="13" r="1.6"/></svg>Face Scanner</a>
+    <a href="register-student.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M17 8h4M19 6v4"/></svg>Register Student</a>
+
+    <div class="nav-label">Directory</div>
+    <a href="students.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="18" cy="8" r="2.6"/><path d="M15.5 14.2c2.6.3 4.5 2.5 4.5 5.8"/></svg>Students</a>
+    <a href="faculty.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Faculty</a>
+    <div class="nav-label">Intelligence</div>
+    <a href="analytics.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg>Predictive Analytics</a>
+    <a href="campus-intelligence.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg>Campus Intelligence<span class="badge-count">3</span></a>
+    <a href="reports.html" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l3 3v15H6z"/><path d="M9 12h6M9 16h6M9 8h3"/></svg>Reports</a>
+    <div class="sidebar-footer"><a href="profile.html" class="sidebar-user"><span class="avatar">SR</span><div><div class="name">Dr. S. Rahman</div><div class="role">Administrator</div></div></a></div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div class="flex items-center">
+        <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="topbar-title"><h1>Reports</h1><div class="crumb">Generate and export attendance &amp; compliance reports</div></div>
+      </div>
+      <div class="topbar-right">
+        <a href="profile.html"><span class="avatar">SR</span></a>
+      </div>
+    </header>
+
+    <main class="main">
+
+      <div class="card card-pad">
+        <div class="card-head"><div><h3>Generate a new report</h3><div class="sub">Choose a scope and format</div></div></div>
+        <div class="filters">
+          <select class="select"><option>Attendance summary</option><option>At-risk student list</option><option>Anomaly &amp; security log</option><option>Faculty attendance breakdown</option></select>
+          <select class="select"><option>This week</option><option>This month</option><option>This semester</option><option>Custom range</option></select>
+          <select class="select"><option>All departments</option><option>CSE</option><option>EEE</option><option>Business</option><option>Architecture</option></select>
+          <button class="btn btn-primary btn-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Generate report
+          </button>
+        </div>
+      </div>
+
+      <div class="card card-pad mt-20">
+        <div class="card-head">
+          <div><h3>Recent reports</h3><div class="sub">Generated in the last 30 days</div></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Report</th><th>Scope</th><th>Generated</th><th>Format</th><th>Size</th><th></th></tr></thead>
+            <tbody>
+              <tr><td><div class="cell-name">August Attendance Summary</div><div class="cell-sub">All departments</div></td><td>Semester-to-date</td><td class="mono">Aug 1, 2026</td><td><span class="badge badge-blue">PDF</span></td><td class="mono">1.2 MB</td><td><button class="btn btn-ghost btn-sm">Download</button></td></tr>
+              <tr><td><div class="cell-name">At-Risk Student Watchlist</div><div class="cell-sub">CSE, EEE, Business</div></td><td>Last 4 weeks</td><td class="mono">Jul 28, 2026</td><td><span class="badge badge-green">XLSX</span></td><td class="mono">340 KB</td><td><button class="btn btn-ghost btn-sm">Download</button></td></tr>
+              <tr><td><div class="cell-name">Anomaly &amp; Security Log</div><div class="cell-sub">Gate A, Gate C</div></td><td>Last 7 days</td><td class="mono">Jul 26, 2026</td><td><span class="badge badge-blue">PDF</span></td><td class="mono">880 KB</td><td><button class="btn btn-ghost btn-sm">Download</button></td></tr>
+              <tr><td><div class="cell-name">Faculty Attendance Breakdown</div><div class="cell-sub">All departments</div></td><td>July 2026</td><td class="mono">Jul 31, 2026</td><td><span class="badge badge-green">XLSX</span></td><td class="mono">512 KB</td><td><button class="btn btn-ghost btn-sm">Download</button></td></tr>
+              <tr><td><div class="cell-name">GDPR Data Access Log</div><div class="cell-sub">Compliance export</div></td><td>Q3 2026</td><td class="mono">Jul 20, 2026</td><td><span class="badge badge-blue">PDF</span></td><td class="mono">2.1 MB</td><td><button class="btn btn-ghost btn-sm">Download</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="grid grid-3 mt-20">
+        <div class="card card-pad">
+          <div class="feature-icon" style="background:var(--surface-2);width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:18px;height:18px;"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg></div>
+          <h3 style="font-size:14.5px;">Scheduled reports</h3>
+          <p class="text-secondary mt-8" style="font-size:12.5px;line-height:1.6;">Set weekly or monthly reports to auto-generate and email to department heads.</p>
+          <button class="btn btn-ghost btn-sm mt-12" style="width:100%;">Manage schedule</button>
+        </div>
+        <div class="card card-pad">
+          <div class="feature-icon" style="background:var(--surface-2);width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:18px;height:18px;"><path d="M12 20s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+          <h3 style="font-size:14.5px;">Compliance exports</h3>
+          <p class="text-secondary mt-8" style="font-size:12.5px;line-height:1.6;">GDPR-ready access logs showing who viewed biometric records and when.</p>
+          <button class="btn btn-ghost btn-sm mt-12" style="width:100%;">Open compliance center</button>
+        </div>
+        <div class="card card-pad">
+          <div class="feature-icon" style="background:var(--surface-2);width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:18px;height:18px;"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12h8M8 16h5"/></svg></div>
+          <h3 style="font-size:14.5px;">Custom builder</h3>
+          <p class="text-secondary mt-8" style="font-size:12.5px;line-height:1.6;">Combine any metric across attendance, analytics and security into one report.</p>
+          <button class="btn btn-ghost btn-sm mt-12" style="width:100%;">Build custom report</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>
